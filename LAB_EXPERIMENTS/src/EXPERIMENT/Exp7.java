@@ -132,60 +132,104 @@ public class Exp7 {
 		System.out.println("******************************");
 		System.out.println("         MENU                 ");
 		System.out.println("******************************");
-		System.out.println("1.Push into Array Stack");
-		System.out.println("2.Pop into Array Stack");
-		System.out.println("3.Display the Array Stack");
-		System.out.println("4.Push into Linkedlist Stack");
-		System.out.println("5.Pop into Linkedlist Stack");
-		System.out.println("6.Display into Linkedlist Stack");
-		System.out.println("7.Insert Sorted(Array)");
-		System.out.println("8.Sort Stack(Array");
-		System.out.println("9.Insert Bottom(Stack)");
-		System.out.println("10.Reverse Stack(Array)");
-		System.out.println("11.Exit");
+		System.out.println("1.Array Stack Operation");
+		System.out.println("2.Linkedlist Stack Operation");
+		System.out.println("3.Insert Sorted(Array)");
+		System.out.println("4.Sort Stack(Array)");
+		System.out.println("5.Insert Bottom(Stack)");
+		System.out.println("6.Reverse Stack(Array)");
+		System.out.println("7.Exit");
 		while(true) {
-			System.out.println("Enter your choice");
+			System.out.println("Enter your choice:");
 			int ch=sc.nextInt();
 			switch(ch) {
 			case 1:
-				System.out.print("Value:-");
-				as.push(sc.nextInt());
+				System.out.println("Array Stack Menu:-");
+				System.out.println("1.PUSH");
+				System.out.println("2.POP");
+				System.out.println("3.DISPLAY");
+				System.out.println("4.Back to Main Menu");
+				while(true) {
+					System.out.println("Enter your choice for Array Stack Operation");
+					int c=sc.nextInt();
+					if (c==4)
+						break;	
+					switch(c) {
+					case 1:
+						System.out.println("Value");
+						as.push(sc.nextInt());
+						break;
+					case 2:
+						System.out.println("Popped Value:"+as.pop());
+						break;
+					case 3:
+						System.out.println("Array Stack:");
+						as.display();
+						break;
+					default:
+						System.out.println("Invalid Choice");			
+					}
+				}
 				break;
-			case 2:
-				System.out.println("Popped value is"+as.pop());
+			case 2:	
+				System.out.println("LinkedList Stack Menu:-");
+				System.out.println("1.PUSH");
+				System.out.println("2.POP");
+				System.out.println("3.DISPLAY");
+				System.out.println("4.Back to Main Menu");
+				while(true) {
+					System.out.println("Enter your choice for LinkedList Stack Operation");
+					int d=sc.nextInt();
+					if (d==4) 
+						break;
+					switch(d) {
+					case 1:
+						System.out.println("Value");
+						ls.push(sc.nextInt());
+						break;
+					case 2:
+						System.out.println("Popped Value:"+ls.pop());
+						break;
+					case 3:
+						System.out.println("LinkedList Stack:");
+						ls.display();
+						break;
+					default:
+						System.out.println("Invalid Choice");			
+					}
+				}
 				break;
 			case 3:
-				System.out.println("Values in Array Stack are:-");
+				System.out.println("Before Insert Sorted:");
+				as.display();
+				System.out.println("Value:-");
+				fun.insSort(as,sc.nextInt());
+				System.out.println("After Insert Sorted:");
 				as.display();
 				break;
 			case 4:
-				System.out.println("Value:-");
-				ls.push(sc.nextInt());
+				System.out.println("Before Sort:");
+				as.display();
+				fun.sort(as);
+				System.out.println("After Sort:");
+				as.display();
 				break;
 			case 5:
-				System.out.println("Popped value is"+ls.pop());
-				break;
-			case 6:
-				System.out.println("Values in Linkedlist Stack are:-");
-				ls.display();
-				break;
-			case 7:
-				System.out.println("Value:-");
-				fun.insSort(as,sc.nextInt());
-				break;
-			case 8:
-				fun.sort(as);
-				System.out.println("Sorted");
-				break;
-			case 9:
+				System.out.println("Before Insert Bottom:");
+				as.display();
 				System.out.println("Value:-");
 				fun.insBot(as,sc.nextInt());
+				System.out.println("After Insert Bottom:");
+				as.display();
 				break;
-			case 10:
+			case 6:
+				System.out.println("Before Reverse:");
+				as.display();
 				fun.rev(as);
-				System.out.println("Reversed");
+				System.out.println("Before Reverse:");
+				as.display();
 				break;
-			case 11:
+			case 7:
 				System.out.println("Exiting.....");
 				break;
 			default:
