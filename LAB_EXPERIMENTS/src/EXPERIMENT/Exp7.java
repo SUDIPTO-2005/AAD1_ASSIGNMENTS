@@ -86,7 +86,7 @@ class Lstack {
 }
 class fun{
 	static void insSort(Astack s,int x) {
-		if (s.isempty()) {
+		if (s.isempty() || s.arr[s.t] <= x) {
 			s.push(x);
 			return;
 		}
